@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNova Agency</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Inter',sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  transition:all .3s ease;
+}
+
+/* Cards */
+.card{
+  background:#111827;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+  transition:.35s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(0,0,0,.7);
+}
+
+/* Inputs */
+input,textarea{
+  background:#020617;
+  border:1px solid #1e293b;
+  color:#e5e7eb;
+}
+input::placeholder,textarea::placeholder{
+  color:#94a3b8;
+}
+input:focus,textarea:focus{
+  outline:none;
+  border-color:#6366f1;
+  box-shadow:0 0 0 2px rgba(99,102,241,.25);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-thumb{
+  background:#334155;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body class="dark">
+
+<!-- MOBILE SIDEBAR -->
+<div id="sidebar" class="fixed inset-0 z-50 hidden">
+  <div onclick="toggleMenu()" class="absolute inset-0 bg-black/70"></div>
+
+  <div id="sidebarContent" class="absolute left-0 top-0 w-64 h-full bg-slate-950 p-6 transform -translate-x-full transition-all">
+    <div class="flex justify-between items-center mb-10">
+      <h2 class="font-bold text-xl text-indigo-400">TechNova</h2>
+      <button onclick="toggleMenu()" class="text-gray-400 text-2xl">✕</button>
+    </div>
+
+    <nav class="flex flex-col space-y-6 text-lg font-medium">
+      <a href="#home" onclick="toggleMenu()" class="hover:text-indigo-400">Home</a>
+      <a href="#services" onclick="toggleMenu()" class="hover:text-indigo-400">Services</a>
+      <a href="#portfolio" onclick="toggleMenu()" class="hover:text-indigo-400">Portfolio</a>
+      <a href="#pricing" onclick="toggleMenu()" class="hover:text-indigo-400">Pricing</a>
+      <a href="#team" onclick="toggleMenu()" class="hover:text-indigo-400">Team</a>
+      <a href="#blog" onclick="toggleMenu()" class="hover:text-indigo-400">Blog</a>
+      <a href="#contact" onclick="toggleMenu()" class="hover:text-indigo-400">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full bg-slate-900/80 backdrop-blur border-b border-white/5 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="font-bold text-xl text-indigo-400">TechNova</h1>
+
+    <ul class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+      <li><a href="#home" class="hover:text-indigo-400">Home</a></li>
+      <li><a href="#services" class="hover:text-indigo-400">Services</a></li>
+      <li><a href="#portfolio" class="hover:text-indigo-400">Portfolio</a></li>
+      <li><a href="#pricing" class="hover:text-indigo-400">Pricing</a></li>
+      <li><a href="#team" class="hover:text-indigo-400">Team</a></li>
+      <li><a href="#blog" class="hover:text-indigo-400">Blog</a></li>
+      <li><a href="#contact" class="hover:text-indigo-400">Contact</a></li>
+    </ul>
+
+    <button onclick="toggleMenu()" class="md:hidden text-2xl text-gray-300">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center pt-28 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216')] bg-cover bg-center relative">
+  <div class="absolute inset-0 bg-slate-950/80"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 text-center py-32">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+      Modern <span class="text-indigo-400">Web Solutions</span> for Your Brand
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
+      We craft enterprise-grade websites, scalable apps, and digital products that grow your business.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-6">
+      <a href="#contact" class="px-8 py-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
+        Get Started
+      </a>
+      <a href="#portfolio" class="px-8 py-4 border border-indigo-500 text-indigo-400 rounded-xl hover:bg-indigo-600 hover:text-white transition">
+        View Portfolio
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">Services</h2>
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="card p-10 rounded-2xl text-center">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" class="mx-auto mb-4 rounded-xl h-40 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Web Design</h3>
+        <p class="text-gray-600 dark:text-gray-300">Beautiful UI/UX design, responsive layouts, and modern branding.</p>
+      </div>
+      <div class="card p-10 rounded-2xl text-center">
+        <img src="dev.avif" class="mx-auto mb-4 rounded-xl h-40 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Development</h3>
+        <p class="text-gray-600 dark:text-gray-300">Fast, scalable, and secure websites and web apps tailored to your business.</p>
+      </div>
+      <div class="card p-10 rounded-2xl text-center">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" class="mx-auto mb-4 rounded-xl h-40 object-cover">
+        <h3 class="text-xl font-semibold mb-2">SEO & Marketing</h3>
+        <p class="text-gray-600 dark:text-gray-300">Optimize your website for search engines and grow your audience organically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-32 bg-blue dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">Portfolio</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <a href="https://example.com/project1" target="_blank" class="card rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="h-56 w-full object-cover">
+        <div class="p-6 font-semibold">Business Website</div>
+      </a>
+      <a href="https://example.com/project2" target="_blank" class="card rounded-2xl overflow-hidden">
+        <img src="landing page.png" class="h-56 w-full object-cover">
+        <div class="p-6 font-semibold">Landing Page</div>
+      </a>
+      <a href="https://example.com/project3" target="_blank" class="card rounded-2xl overflow-hidden">
+        <img src="ecommerce.png" class="h-56 w-full object-cover">
+        <div class="p-6 font-semibold">E-Commerce Store</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing" class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">Pricing Packages</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="card p-10 rounded-2xl text-center">
+        <h3 class="text-xl font-semibold mb-4">Basic</h3>
+        <p class="text-3xl font-bold mb-4">PKR 25,000</p>
+        <ul class="text-gray-400 space-y-2">
+          <li>✔ 3 Pages Website</li>
+          <li>✔ Responsive Design</li>
+          <li>✔ Contact Form</li>
+        </ul>
+      </div>
+
+      <div class="card p-10 rounded-2xl border border-indigo-500 text-center scale-105">
+        <h3 class="text-xl font-semibold mb-4">Standard</h3>
+        <p class="text-3xl font-bold mb-4">PKR 50,000</p>
+        <ul class="text-gray-400 space-y-2">
+          <li>✔ 6 Pages Website</li>
+          <li>✔ SEO Optimization</li>
+          <li>✔ WhatsApp Integration</li>
+        </ul>
+      </div>
+
+      <div class="card p-10 rounded-2xl text-center">
+        <h3 class="text-xl font-semibold mb-4">Premium</h3>
+        <p class="text-3xl font-bold mb-4">PKR 100,000</p>
+        <ul class="text-gray-400 space-y-2">
+          <li>✔ Full Custom Design</li>
+          <li>✔ Admin Panel</li>
+          <li>✔ Lifetime Support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="py-32 bg-blue dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">Meet The Team</h2>
+    <div class="grid md:grid-cols-3 gap-10 text-center">
+      <a href="https://linkedin.com" target="_blank" class="card p-10 rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=400&q=80" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h4 class="font-semibold">Web Developer</h4>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="card p-10 rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h4 class="font-semibold">UI/UX Designer</h4>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="card p-10 rounded-2xl">
+        <img src="man 1.jpg" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h4 class="font-semibold">Project Manager</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">What Our Clients Say</h2>
+    <div class="relative overflow-hidden">
+      <div id="testimonialSlider" class="flex transition-transform duration-500">
+        <div class="card p-10 rounded-2xl min-w-full mx-2 text-center">
+          <p class="italic text-gray-600 dark:text-gray-300 mb-4">"TechNova transformed our website, we doubled our traffic!"</p>
+          <h4 class="font-semibold">Ali Khan</h4>
+        </div>
+        <div class="card p-10 rounded-2xl min-w-full mx-2 text-center">
+          <p class="italic text-gray-600 dark:text-gray-300 mb-4">"Amazing UI/UX design and perfect functionality."</p>
+          <h4 class="font-semibold">Sara Ahmed</h4>
+        </div>
+        <div class="card p-10 rounded-2xl min-w-full mx-2 text-center">
+          <p class="italic text-gray-600 dark:text-gray-300 mb-4">"Highly professional, very responsive team."</p>
+          <h4 class="font-semibold">Omar Farooq</h4>
+        </div>
+      </div>
+      <div class="flex justify-center mt-6 gap-4">
+        <button onclick="prevSlide()">◀</button>
+        <button onclick="nextSlide()">▶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="py-32 bg-blue dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-20">Latest Blog</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="card p-8 rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" class="rounded-xl mb-4 h-40 w-full object-cover">
+        <h4 class="font-semibold mb-2">Design Trends 2026</h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Explore the newest UI/UX design trends shaping modern websites.</p>
+      </div>
+      <div class="card p-8 rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80" class="rounded-xl mb-4 h-40 w-full object-cover">
+        <h4 class="font-semibold mb-2">SEO Tips for Startups</h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Practical tips to boost your website's search rankings efficiently.</p>
+      </div>
+      <div class="card p-8 rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=400&q=80" class="rounded-xl mb-4 h-40 w-full object-cover">
+        <h4 class="font-semibold mb-2">Growth Hacking</h4>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Strategies to scale your business and attract new customers fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="py-32">
+  <div class="max-w-xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+
+    <form class="card p-10 rounded-2xl space-y-5">
+      <input placeholder="Name" class="w-full p-4 rounded-xl">
+      <input placeholder="Email" class="w-full p-4 rounded-xl">
+      <input placeholder="Phone" class="w-full p-4 rounded-xl">
+      <textarea placeholder="Message" class="w-full p-4 rounded-xl"></textarea>
+      <button class="w-full bg-indigo-600 text-white py-4 rounded-xl hover:bg-indigo-700 transition">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="font-bold text-white mb-3">TechNova</h3>
+      <p>Professional web & software solutions.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-white mb-3">Contact</h4>
+      <p>📞 +92 313 1160868</p>
+      <p>✉ info@technova.com</p>
+    </div>
+  </div>
+  <p class="text-center mt-10 text-sm">© 2026 TechNova. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  const s=document.getElementById('sidebar');
+  const c=document.getElementById('sidebarContent');
+  s.classList.toggle('hidden');
+  setTimeout(()=>c.classList.toggle('-translate-x-full'),10);
+}
+</script>
+
+</body>
+</html>
